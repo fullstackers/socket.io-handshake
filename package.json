@@ -1,0 +1,30 @@
+{
+  "name": "socket.io-sessions",
+  "version": "0.0.0",
+  "description": "socket.io sessions",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eiriklv/socket.io-sessions.git"
+  },
+  "keywords": [
+    "socket.io",
+    "sessions"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eiriklv/socket.io-sessions/issues"
+  },
+  "homepage": "https://github.com/eiriklv/socket.io-sessions",
+  "devDependencies": {
+    "sandboxed-module": "^0.3.0",
+    "grunt-jasmine-bundle": "^0.2.0",
+    "coffee-script": "^1.7.1",
+    "grunt-cli": "^0.1.13",
+    "grunt": "^0.4.5"
+  }
+}
