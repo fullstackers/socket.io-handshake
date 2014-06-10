@@ -1,4 +1,26 @@
-session middleware for socket.io
+**session middleware for socket.io**
+
+```javascript
+var socketSessions = require('socket.io-sessions');
+var io = require('socket.io')(3000);
+io.use( socketSessions() );
+
+```
+
+Using [connect-redis](https://www.npmjs.org/package/connect-redis "connect-redis") for our session store.
+
+```javascript
+
+var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
+var sessionStore = return new RedisStore();
+var cookieParser = require('cookie-parser');
+var socketSessions = require('socket.io-sessions');
+
+var io = require('socket.io')(3000);
+io.use(socketSessions({store: sessionStore, key:'sid'}, cookieParser()));
+
+```
 
 # Installation and Environment Setup
 
