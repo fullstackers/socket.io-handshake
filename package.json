@@ -14,7 +14,12 @@
     "socket.io",
     "sessions"
   ],
-  "author": "",
+  "contributors": [
+    {
+      "name": "Nathan G. Romano",
+      "email": "nathan.g.romano@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/eiriklv/socket.io-sessions/issues"
