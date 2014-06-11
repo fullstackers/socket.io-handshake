@@ -32,7 +32,7 @@ Clone this repository
 
 cd into the directory and install the dependencies
 
-    > cd socket.io-event-router
+    > cd socket.io-sessions
     > npm install && npm shrinkwrap --dev
 
 # Running Tests
