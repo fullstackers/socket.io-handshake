@@ -31,5 +31,10 @@
     "coffee-script": "^1.7.1",
     "grunt-cli": "^0.1.13",
     "grunt": "^0.4.5"
+  },
+  "dependencies": {
+    "connect": "^2.19.5",
+    "cookie-parser": "^1.1.0",
+    "express-session": "^1.2.1"
   }
 }
