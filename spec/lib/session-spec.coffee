@@ -2,8 +2,9 @@ describe 'Session', ->
 
   Given ->
     @CookieParser = () ->
-      (cookie, cb) ->
-        cb(null, {})
+      @fn
+    @CookieParser.fn = (cookie, cb) ->
+      cb(null, {})
 
   Given ->
     @MemoryStore = class SessionStore
@@ -38,28 +39,28 @@ describe 'Session', ->
     Given -> spyOn(@SocketSessions,['init']).andCallThrough()
     When -> @res = @SocketSessions @settings
     Then -> expect(@res.instance instanceof @SocketSessions).toBe true
-    And -> expect(@SocketSessions.init).toHaveBeenCalledWith @settings
+    And -> expect(@SocketSessions.init).toHaveBeenCalledWith @res.instance, @settings
 
   describe '#init', ->
 
     When -> @res = @SocketSessions.init()
-    Then -> expect(@res instanceof @SocketSessions).toBe true
-    And -> expect(@res.store instanceof @MemoryStore).toBe true
-    And -> expect(typeof @res.key).toBe 'string'
-    And -> expect(@res.key).toBe 'io'
-    And -> expect(@res.parser).toEqual @CookieParser()
+    Then -> expect(@res.instance instanceof @SocketSessions).toBe true
+    And -> expect(@res.instance.store instanceof @MemoryStore).toBe true
+    And -> expect(typeof @res.instance.key).toBe 'string'
+    And -> expect(@res.instance.key).toBe 'io'
+    And -> expect(@res.instance.parser).toBe @CookieParser()
 
 
   describe '#init (instance:null,options:Object)', ->
 
     When -> @res = @SocketSessions.init null, @settings
-    Then -> expect(@res instanceof @SocketSessions).toBe true
-    And -> expect(@res.store instanceof @MemoryStore).toBe true
-    And -> expect(@res.store).toEqual @store
-    And -> expect(typeof @res.key).toBe 'string'
-    And -> expect(@res.key).toEqual @key
-    And -> expect(@res.parser instanceof @CookieParser).toBe true
-    And -> expect(@res.parser).toEqual @parser
+    Then -> expect(@res.instance instanceof @SocketSessions).toBe true
+    And -> expect(@res.instance.store instanceof @MemoryStore).toBe true
+    And -> expect(@res.instance.store).toEqual @store
+    And -> expect(typeof @res.instance.key).toBe 'string'
+    And -> expect(@res.instance.key).toEqual @key
+    And -> expect(@res.instance.parser instanceof @CookieParser).toBe true
+    And -> expect(@res.instance.parser).toEqual @parser
 
   describe 'prototype', ->
 
