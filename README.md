@@ -18,7 +18,7 @@ var cookieParser = require('cookie-parser');
 var socketSessions = require('socket.io-sessions');
 
 var io = require('socket.io')(3000);
-io.use(socketSessions({store: sessionStore, key:'sid', parser:cookieParser()}));
+io.use(socketSessions({store: sessionStore, key:'sid', secret:'secret', parser:cookieParser()}));
 
 ```
 
