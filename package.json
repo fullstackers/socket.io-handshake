@@ -1,14 +1,14 @@
 {
-  "name": "socket.io-session",
+  "name": "socket.io-handshake",
   "version": "0.0.1",
-  "description": "socket.io sessions",
+  "description": "socket.io v1.x sessions",
   "main": "index.js",
   "scripts": {
     "test": "grunt"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/eiriklv/socket.io-sessions.git"
+    "url": "git://github.com/eiriklv/socket.io-handshake.git"
   },
   "keywords": [
     "socket.io",
@@ -22,9 +22,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/eiriklv/socket.io-sessions/issues"
+    "url": "https://github.com/eiriklv/socket.io-handshake/issues"
   },
-  "homepage": "https://github.com/eiriklv/socket.io-sessions",
+  "homepage": "https://github.com/eiriklv/socket.io-handshake",
   "devDependencies": {
     "sandboxed-module": "^0.3.0",
     "grunt-jasmine-bundle": "^0.2.0",

@@ -1,7 +1,9 @@
 **session middleware for socket.io**
 
+# Examples
+
 ```javascript
-var socketSessions = require('socket.io-sessions');
+var socketSessions = require('socket.io-handshake');
 var io = require('socket.io')(3000);
 io.use( socketSessions() );
 
@@ -15,10 +17,10 @@ var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 var sessionStore = return new RedisStore();
 var cookieParser = require('cookie-parser');
-var socketSessions = require('socket.io-sessions');
+var socketHandshake = require('socket.io-handshake');
 
 var io = require('socket.io')(3000);
-io.use(socketSessions({store: sessionStore, key:'sid', secret:'secret', parser:cookieParser()}));
+io.use(socketHandshake({store: sessionStore, key:'sid', secret:'secret', parser:cookieParser()}));
 
 ```
 
@@ -28,11 +30,11 @@ Install node.js (See download and install instructions here: http://nodejs.org/)
 
 Clone this repository
 
-    > git clone git@github.com:eiriklv/socket.io-sessions.git
+    > git clone git@github.com:eiriklv/socket.io-handshake.git
 
 cd into the directory and install the dependencies
 
-    > cd socket.io-sessions
+    > cd socket.io-handshake
     > npm install && npm shrinkwrap --dev
 
 # Running Tests
