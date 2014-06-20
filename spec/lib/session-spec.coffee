@@ -7,6 +7,7 @@ describe 'Session', ->
       req.cookies =
         io: @id
       next null
+    @fn.parseSignedCookie = => @id
     @CookieParser = () => @fn
 
   Given ->
@@ -42,33 +43,33 @@ describe 'Session', ->
   describe '#', ->
     Given -> spyOn(@SocketSessions,['init']).andCallThrough()
     When -> @res = @SocketSessions()
-    Then -> expect(@res.session instanceof @SocketSessions).toBe true
+    Then -> expect(@res instanceof @SocketSessions).toBe true
     And -> expect(@SocketSessions.init).toHaveBeenCalled()
 
   describe '# (settings:Object={store:MemoryStore,key:String,parse:CookieParser)', ->
     Given -> spyOn(@SocketSessions,['init']).andCallThrough()
     When -> @res = @SocketSessions @settings
-    Then -> expect(@res.session instanceof @SocketSessions).toBe true
-    And -> expect(@SocketSessions.init).toHaveBeenCalledWith @res.session, @settings
+    Then -> expect(@res instanceof @SocketSessions).toBe true
+    And -> expect(@SocketSessions.init).toHaveBeenCalledWith @res, @settings
 
   describe '#init', ->
 
     When -> @res = @SocketSessions.init()
-    Then -> expect(@res.session instanceof @SocketSessions).toBe true
-    And -> expect(@res.session.store instanceof @MemoryStore).toBe true
-    And -> expect(typeof @res.session.key).toBe 'string'
-    And -> expect(@res.session.key).toBe 'io'
-    And -> expect(@res.session.parser).toBe @CookieParser()
+    Then -> expect(@res instanceof @SocketSessions).toBe true
+    And -> expect(@res.store instanceof @MemoryStore).toBe true
+    And -> expect(typeof @res.key).toBe 'string'
+    And -> expect(@res.key).toBe 'io'
+    And -> expect(@res.parser).toBe @CookieParser()
 
   describe '#init (session:null,options:Object)', ->
 
     When -> @res = @SocketSessions.init null, @settings
-    Then -> expect(@res.session instanceof @SocketSessions).toBe true
-    And -> expect(@res.session.store instanceof @MemoryStore).toBe true
-    And -> expect(@res.session.store).toEqual @store
-    And -> expect(typeof @res.session.key).toBe 'string'
-    And -> expect(@res.session.key).toEqual @key
-    And -> expect(@res.session.parser).toEqual @parser
+    Then -> expect(@res instanceof @SocketSessions).toBe true
+    And -> expect(@res.store instanceof @MemoryStore).toBe true
+    And -> expect(@res.store).toEqual @store
+    And -> expect(typeof @res.key).toBe 'string'
+    And -> expect(@res.key).toEqual @key
+    And -> expect(@res.parser).toEqual @parser
 
   describe 'prototype', ->
 
@@ -77,12 +78,12 @@ describe 'Session', ->
 
     describe '#', ->
       
-      Given -> spyOn(@instance.session,['middleware'])
+      Given -> spyOn(@instance,['middleware'])
       When -> @instance @socket, @cb
-      Then -> expect(@instance.session.middleware).toHaveBeenCalledWith @socket, @cb
+      Then -> expect(@instance.middleware).toHaveBeenCalledWith @socket, @cb
 
     describe '#middleware (socket:Socket, cb:Function)', ->
-      When -> @instance.session.middleware @socket, @cb
+      When -> @instance.middleware @socket, @cb
       Then -> expect(@cb).toHaveBeenCalled()
       #And -> expect(@store.get).toHaveBeenCalledWith @id, jasmine.anyFunction()
       #And -> expect(@session.handshake.sessionID).toEqual 'NEhNorpe2dj99zAAAW'
