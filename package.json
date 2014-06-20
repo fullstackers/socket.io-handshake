@@ -12,7 +12,8 @@
   },
   "keywords": [
     "socket.io",
-    "sessions"
+    "sessions",
+    "handshake"
   ],
   "contributors": [
     {
