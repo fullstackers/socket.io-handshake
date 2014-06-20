@@ -1,4 +1,10 @@
-**session middleware for socket.io**
+<!--
+[![Build Status](https://travis-ci.org/nathangromano/socket.io-handshake.svg?branch=master)](https://travis-ci.org/nathangromano/socket.io-handshake)
+[![NPM version](https://badge.fury.io/js/socket.io-handshake.svg)](http://badge.fury.io/js/socket.io-handshake)
+[![David DM](https://david-dm.org/nathangromano/socket.io-handshake.png)](https://david-dm.org/nathangromano/socket.io-handshake.png)
+-->
+
+Session middleware for [socket.io](https://github.com/Automattic/socket.io "socket.io") v1.x;
 
 # Examples
 
@@ -30,7 +36,7 @@ Install node.js (See download and install instructions here: http://nodejs.org/)
 
 Clone this repository
 
-    > git clone git@github.com:eiriklv/socket.io-handshake.git
+    > git clone git@github.com:nathangromano/socket.io-handshake.git
 
 cd into the directory and install the dependencies
 
