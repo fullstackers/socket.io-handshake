@@ -1,6 +1,6 @@
 {
   "name": "socket.io-handshake",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "socket.io v1.x sessions",
   "main": "index.js",
   "scripts": {

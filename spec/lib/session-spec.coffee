@@ -7,7 +7,7 @@ describe 'Session', ->
       req.cookies =
         io: @id
       next null
-    @fn.parseSignedCookie = => @id
+    @fn.signedCookie = => @id
     @CookieParser = () => @fn
 
   Given ->
