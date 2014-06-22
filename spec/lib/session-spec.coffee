@@ -9,6 +9,7 @@ describe 'Session', ->
       next null
     @fn.signedCookie = => @id
     @CookieParser = () => @fn
+    @CookieParser.signedCookie = @fn.signedCookie
 
   Given ->
     @MemoryStore = class SessionStore
