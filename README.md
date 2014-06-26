@@ -11,22 +11,19 @@ Session middleware for [socket.io](https://github.com/Automattic/socket.io "sock
 var socketSessions = require('socket.io-handshake');
 var io = require('socket.io')(3000);
 io.use( socketSessions() );
-
 ```
 
 Using [connect-redis](https://www.npmjs.org/package/connect-redis "connect-redis") for our session store.
 
 ```javascript
-
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
-var sessionStore = return new RedisStore();
+var sessionStore = new RedisStore();
 var cookieParser = require('cookie-parser');
 var socketHandshake = require('socket.io-handshake');
 
 var io = require('socket.io')(3000);
 io.use(socketHandshake({store: sessionStore, key:'sid', secret:'secret', parser:cookieParser()}));
-
 ```
 
 # Installation and Environment Setup
