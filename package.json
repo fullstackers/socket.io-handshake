@@ -1,6 +1,6 @@
 {
   "name": "socket.io-handshake",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "socket.io v1.x sessions",
   "main": "index.js",
   "scripts": {
@@ -35,6 +35,6 @@
   },
   "dependencies": {
     "cookie-parser": "~1.3.1",
-    "express-session": "~1.5.0"
+    "express-session": "^1.6"
   }
 }
