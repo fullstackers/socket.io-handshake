@@ -26,6 +26,20 @@ var io = require('socket.io')(3000);
 io.use(socketHandshake({store: sessionStore, key:'sid', secret:'secret', parser:cookieParser()}));
 ```
 
+To access the session data.
+
+```javascript
+io.on('connection' function (sock) {
+  if (!sock.handshake.session.name) {
+    sock.emit('get name');
+  };
+  sock.on('set nama', function (name) {
+    sock.handhsake.session.name = name;
+    sock.handshake.session.save();
+  });
+});
+```
+
 # Installation and Environment Setup
 
 Install node.js (See download and install instructions here: http://nodejs.org/).
